@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(pico-temp-sensor pico-temp-sensor.c Si7021.c )
+add_executable(pico-temp-sensor pico_temp_sensor.c Si7021.c )
 
 pico_set_program_name(pico-temp-sensor "pico-temp-sensor")
 pico_set_program_version(pico-temp-sensor "0.1")

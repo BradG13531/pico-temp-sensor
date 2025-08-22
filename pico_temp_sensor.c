@@ -55,6 +55,12 @@
 #define I2C_SDA 4
 #define I2C_SCL 5
 
+typedef struct {
+    uint16_t time;
+    float temperature;
+    float humidity;
+} sensor_data;
+
 int main() {
     stdio_init_all();
 
