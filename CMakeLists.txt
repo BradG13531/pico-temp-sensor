@@ -44,6 +44,10 @@ pico_set_program_version(pico-temp-sensor "0.1")
 pico_enable_stdio_uart(pico-temp-sensor 1)
 pico_enable_stdio_usb(pico-temp-sensor 0)
 
+# target_compile_definitions(pico-temp-sensor PRIVATE
+#         WIFI_SSID=\"${WIFI_SSID}\"
+#         WIFI_PASSWORD=\"${WIFI_PASSWORD}\"
+#         )
 # Add the standard library to the build
 target_link_libraries(pico-temp-sensor
         pico_stdlib)
@@ -56,7 +60,7 @@ target_include_directories(pico-temp-sensor PRIVATE
 # Add any user requested libraries
 target_link_libraries(pico-temp-sensor 
         hardware_i2c
-        pico_cyw43_arch_none
+        pico_cyw43_arch_lwip_threadsafe_background
         )
 
 pico_add_extra_outputs(pico-temp-sensor)

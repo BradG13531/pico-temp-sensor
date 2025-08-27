@@ -35,7 +35,8 @@ bool si7021_read_humidity(i2c_inst_t *i2c, float *humidity) {
     }
 
     uint16_t RH_Code = (buf[0] << 8) | (buf[1]);
-    float h = ((125 * RH_Code) / 65536) - 6;
+    RH_Code &= 0xFFFC; // Mask lowest 2 bits
+    float h = ((125 * RH_Code) / 65536.0) - 6;
     if (h > 100) {
         *humidity = 0;
     } else if (h < 0) {
